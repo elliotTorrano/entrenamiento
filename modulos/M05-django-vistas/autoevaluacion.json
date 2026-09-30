@@ -1,0 +1,69 @@
+[
+  {
+    "pregunta": "¿Qué recibe y qué devuelve una vista de Django?",
+    "opciones": [
+      "Recibe un modelo y devuelve una tabla",
+      "Recibe una petición (request) y devuelve una respuesta (HTML, redirección, etc.)",
+      "Recibe una plantilla y devuelve un formulario",
+      "Recibe una URL y devuelve un modelo"
+    ],
+    "correcta": 1,
+    "explicacion": "def lista(request): ... return render(...) o return redirect(...)."
+  },
+  {
+    "pregunta": "El folio debe cumplir el formato de la dependencia elegida. ¿Dónde va esa validación?",
+    "opciones": ["clean_folio", "clean (valida campos combinados)", "En la plantilla", "En urls.py"],
+    "correcta": 1,
+    "explicacion": "clean_folio solo ve el folio; la regla necesita también la dependencia, así que va en clean."
+  },
+  {
+    "pregunta": "¿Qué pasa si form.is_valid() devuelve False en un POST?",
+    "opciones": [
+      "Se guarda de todos modos",
+      "Se muestra otra vez el formulario con los errores y no se guarda nada",
+      "Se redirige a la lista",
+      "Error 500"
+    ],
+    "correcta": 1,
+    "explicacion": "La vista vuelve a dibujar el formulario; cada campo muestra su error."
+  },
+  {
+    "pregunta": "¿Para qué sirve {% extends \"requerimientos/base.html\" %}?",
+    "opciones": [
+      "Para copiar la base de datos",
+      "Para heredar la estructura común y solo rellenar los bloques",
+      "Para incluir el formulario",
+      "Para importar Bootstrap"
+    ],
+    "correcta": 1,
+    "explicacion": "Es herencia aplicada a plantillas: encabezado y menú se escriben una vez."
+  },
+  {
+    "pregunta": "¿Por qué se usa {% url 'requerimientos:editar' r.pk %} en lugar de escribir /requerimientos/5/editar/?",
+    "opciones": [
+      "Es más rápido",
+      "Si la ruta cambia en urls.py, todos los enlaces se actualizan solos",
+      "Es obligatorio en HTML",
+      "Para que funcione con HTMX"
+    ],
+    "correcta": 1,
+    "explicacion": "Las rutas se referencian por nombre, no por texto."
+  },
+  {
+    "pregunta": "¿Qué falta si al enviar un formulario POST aparece 'Forbidden (403) CSRF verification failed'?",
+    "opciones": ["{% csrf_token %} dentro del form", "{% load static %}", "method=\"get\"", "enctype en el form"],
+    "correcta": 0,
+    "explicacion": "Django rechaza todo POST sin token CSRF. Protege contra formularios enviados desde otras páginas."
+  },
+  {
+    "pregunta": "¿Dónde se guarda un archivo adjunto subido con FileField?",
+    "opciones": [
+      "Dentro de la base de datos",
+      "En disco (MEDIA_ROOT); la base guarda solo la ruta",
+      "En Git",
+      "En la sesión del usuario"
+    ],
+    "correcta": 1,
+    "explicacion": "Así la base no crece con archivos pesados, a diferencia de la base aparte de 600 MB de hoy."
+  }
+]

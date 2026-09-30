@@ -1,0 +1,63 @@
+[
+  {
+    "pregunta": "¿Qué es dependencia_id en la tabla requerimientos?",
+    "opciones": [
+      "Una clave primaria",
+      "Una clave foránea que apunta al id de dependencias",
+      "Un índice de texto",
+      "El nombre de la dependencia"
+    ],
+    "correcta": 1,
+    "explicacion": "Guarda el id de la dependencia; con JOIN se obtiene su nombre. En Django será un ForeignKey."
+  },
+  {
+    "pregunta": "¿Qué pasa si ejecutas UPDATE requerimientos SET estatus = 'Cancelado'; sin WHERE?",
+    "opciones": [
+      "Error de sintaxis",
+      "Solo cambia la primera fila",
+      "Cambia TODAS las filas",
+      "No cambia nada"
+    ],
+    "correcta": 2,
+    "explicacion": "Sin WHERE, UPDATE y DELETE afectan toda la tabla. Por eso se prueba primero con SELECT y el mismo WHERE."
+  },
+  {
+    "pregunta": "¿Qué cláusula necesitas para obtener un total por dependencia?",
+    "opciones": ["ORDER BY", "GROUP BY", "LIMIT", "DISTINCT"],
+    "correcta": 1,
+    "explicacion": "GROUP BY agrupa las filas y SUM/COUNT calculan una cifra por grupo."
+  },
+  {
+    "pregunta": "¿Para qué sirve una transacción?",
+    "opciones": [
+      "Para acelerar consultas",
+      "Para que varios cambios se apliquen todos o ninguno",
+      "Para respaldar la base",
+      "Para cifrar los datos"
+    ],
+    "correcta": 1,
+    "explicacion": "Si falla un paso, ROLLBACK deja todo como estaba. Django las usa con transaction.atomic."
+  },
+  {
+    "pregunta": "¿Por qué PostgreSQL resuelve el problema de varias personas guardando a la vez?",
+    "opciones": [
+      "Porque es más rápido que SQLite",
+      "Porque un solo servidor recibe y ordena todas las peticiones, en lugar de que cada PC abra el archivo por la red",
+      "Porque no permite dos usuarios",
+      "Porque guarda cada cambio en un archivo distinto"
+    ],
+    "correcta": 1,
+    "explicacion": "El problema no es SQLite en sí, sino compartir el archivo por red. Un servidor centraliza el acceso."
+  },
+  {
+    "pregunta": "¿Cuándo está probado un respaldo?",
+    "opciones": [
+      "Cuando pg_dump termina sin errores",
+      "Cuando el archivo pesa más de 0 bytes",
+      "Cuando se restauró en otra base y los datos están completos",
+      "Cuando se guarda en otra computadora"
+    ],
+    "correcta": 2,
+    "explicacion": "Un respaldo que nunca se ha restaurado es solo una esperanza."
+  }
+]

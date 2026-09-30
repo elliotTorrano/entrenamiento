@@ -1,0 +1,4 @@
+{% if r.estado == "dominado" %}<span class="insignia dominado">Dominado</span>
+{% elif r.estado == "en_curso" %}<span class="insignia en_curso">En curso</span>
+{% elif not r.disponible %}<span class="insignia bloqueado" title="Requiere {{ r.faltan|join:', ' }}">{% if r.faltan|length > 3 %}Requiere {{ r.faltan|length }} módulos{% else %}Requiere {{ r.faltan|join:", " }}{% endif %}</span>
+{% else %}<span class="insignia pendiente">Disponible</span>{% endif %}

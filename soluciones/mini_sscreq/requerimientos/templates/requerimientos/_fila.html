@@ -1,0 +1,23 @@
+<tr id="req-{{ r.pk }}">
+  <td>{{ r.folio }}</td>
+  <td>{{ r.dependencia }}</td>
+  <td>{{ r.proveedor|default:"—" }}</td>
+  <td class="text-end">${{ r.monto_efectivo|floatformat:"2g" }}</td>
+  <td>
+    <select class="form-select form-select-sm" name="estatus"
+            hx-post="{% url 'requerimientos:cambiar_estatus' r.pk %}"
+            hx-target="closest tr" hx-swap="outerHTML">
+      {% for valor, etiqueta in estatus_opciones %}
+        <option value="{{ valor }}" {% if r.estatus == valor %}selected{% endif %}>{{ etiqueta }}</option>
+      {% endfor %}
+    </select>
+  </td>
+  <td class="text-end text-nowrap">
+    <a class="btn btn-sm btn-outline-primary" href="{% url 'requerimientos:editar' r.pk %}"
+       hx-get="{% url 'requerimientos:editar' r.pk %}" hx-target="#modal-contenido">Editar</a>
+    <button class="btn btn-sm btn-outline-danger"
+            hx-post="{% url 'requerimientos:borrar' r.pk %}"
+            hx-confirm="¿Borrar el requerimiento {{ r.folio }}?"
+            hx-target="closest tr" hx-swap="outerHTML">Borrar</button>
+  </td>
+</tr>

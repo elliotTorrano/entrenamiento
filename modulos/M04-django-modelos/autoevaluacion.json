@@ -1,0 +1,69 @@
+[
+  {
+    "pregunta": "En el patrón MTV de Django, ¿qué archivo decide qué hacer con cada petición?",
+    "opciones": ["models.py", "views.py", "settings.py", "admin.py"],
+    "correcta": 1,
+    "explicacion": "urls.py dirige la petición a una vista (views.py); la vista usa modelos y plantillas."
+  },
+  {
+    "pregunta": "Agregaste un campo a models.py. ¿Qué dos comandos lo llevan a la base, en orden?",
+    "opciones": [
+      "migrate y luego makemigrations",
+      "makemigrations y luego migrate",
+      "runserver y luego migrate",
+      "sqlmigrate y luego runserver"
+    ],
+    "correcta": 1,
+    "explicacion": "makemigrations escribe el plan (archivo de migración); migrate lo ejecuta en la base."
+  },
+  {
+    "pregunta": "¿Qué significa on_delete=models.PROTECT en dependencia = ForeignKey(Dependencia, ...)?",
+    "opciones": [
+      "Que la dependencia se cifra",
+      "Que no se puede borrar una dependencia que tiene requerimientos",
+      "Que al borrar la dependencia se borran sus requerimientos",
+      "Que el campo es obligatorio"
+    ],
+    "correcta": 1,
+    "explicacion": "CASCADE borraría los requerimientos; PROTECT lo impide. Para datos administrativos, PROTECT es lo seguro."
+  },
+  {
+    "pregunta": "¿Qué consulta del ORM equivale a WHERE estatus <> 'cancelado'?",
+    "opciones": [
+      "Requerimiento.objects.filter(estatus='cancelado')",
+      "Requerimiento.objects.exclude(estatus='cancelado')",
+      "Requerimiento.objects.get(estatus='cancelado')",
+      "Requerimiento.objects.order_by('cancelado')"
+    ],
+    "correcta": 1,
+    "explicacion": "exclude es el opuesto de filter."
+  },
+  {
+    "pregunta": "Una tabla muestra el nombre de la dependencia de cada requerimiento y va lenta. ¿Qué ayuda?",
+    "opciones": ["annotate", "select_related('dependencia')", "exclude", "Un índice en monto"],
+    "correcta": 1,
+    "explicacion": "Sin select_related se hace una consulta extra por cada fila; con él, una sola con JOIN."
+  },
+  {
+    "pregunta": "¿Qué se sube a Git?",
+    "opciones": [
+      "db.sqlite3",
+      "Los archivos de migrations/",
+      "La carpeta venv",
+      "La contraseña de PostgreSQL"
+    ],
+    "correcta": 1,
+    "explicacion": "Las migraciones son parte del código: así Beta y producción reciben los mismos cambios."
+  },
+  {
+    "pregunta": "¿Para qué sirve el método __str__ en un modelo?",
+    "opciones": [
+      "Para guardar el objeto",
+      "Para definir cómo se muestra el objeto en listas, combos y el panel",
+      "Para validar el folio",
+      "Para crear la tabla"
+    ],
+    "correcta": 1,
+    "explicacion": "Sin __str__ verías 'Dependencia object (1)' en lugar de 'SSC'."
+  }
+]

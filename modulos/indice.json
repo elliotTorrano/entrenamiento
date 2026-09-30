@@ -1,0 +1,163 @@
+{
+  "etapas": [
+    {"id": 1, "titulo": "Bases", "descripcion": "Sin estas bases, Django parece magia. Con ellas, cada pieza tiene un porqué."},
+    {"id": 2, "titulo": "Django", "descripcion": "El recorrido de una petición: URL → vista → modelo → plantilla → respuesta."},
+    {"id": 3, "titulo": "Interfaz y tiempo real", "descripcion": "La versión web deja de sentirse como páginas que se recargan."},
+    {"id": 4, "titulo": "Producción", "descripcion": "Lo que separa una práctica de un sistema que usan varias dependencias a diario."},
+    {"id": 5, "titulo": "Proyecto integrador", "descripcion": "Mini-SSCReq web con todo lo anterior."}
+  ],
+  "modulos": [
+    {
+      "id": "M0", "carpeta": "M00-herramientas", "etapa": 1, "horas": 8, "requiere": [],
+      "titulo": "Herramientas de trabajo",
+      "resumen": "Editor, terminal, entornos virtuales y Git.",
+      "dominio": [
+        "Creé un proyecto con su propio venv y lo activé desde la terminal",
+        "Hice al menos 5 commits y regresé a uno anterior",
+        "Puedo explicar qué cambió entre dos versiones con git diff",
+        "Deshice un cambio sin perder trabajo"
+      ]
+    },
+    {
+      "id": "M1", "carpeta": "M01-python", "etapa": 1, "horas": 20, "requiere": ["M0"],
+      "titulo": "Python esencial",
+      "resumen": "Tipos, funciones, clases, módulos, excepciones y Decimal.",
+      "dominio": [
+        "Completé validar_folio y pasan sus pruebas",
+        "Completé saldo_presupuesto con Decimal y pasan sus pruebas",
+        "Puedo explicar qué hace una clase que hereda de otra",
+        "Puedo leer app/numero_a_letras.py de SSCReq y explicar cada función"
+      ]
+    },
+    {
+      "id": "M2", "carpeta": "M02-web", "etapa": 1, "horas": 12, "requiere": ["M0"],
+      "titulo": "Cómo funciona la web",
+      "resumen": "HTTP, GET y POST, cookies, HTML, formularios y F12.",
+      "dominio": [
+        "Hice la página estática con la tabla de requerimientos y el formulario",
+        "Puedo explicar la diferencia entre GET y POST",
+        "Seguí en la pestaña Red de F12 qué se envía al guardar un formulario",
+        "Sé qué significan los códigos 200, 302, 403, 404 y 500"
+      ]
+    },
+    {
+      "id": "M3", "carpeta": "M03-bases-de-datos", "etapa": 1, "horas": 14, "requiere": ["M1"],
+      "titulo": "Bases de datos y PostgreSQL",
+      "resumen": "Tablas, relaciones, SQL, transacciones y respaldos.",
+      "dominio": [
+        "Creé las tablas de dependencias, proveedores y requerimientos",
+        "Escribí sin ayuda el total de requerimientos no cancelados por dependencia",
+        "Puedo explicar qué es una clave foránea",
+        "Respaldé y restauré una base con pg_dump"
+      ]
+    },
+    {
+      "id": "M4", "carpeta": "M04-django-modelos", "etapa": 2, "horas": 24, "requiere": ["M1", "M2", "M3"],
+      "titulo": "Django: fundamentos, modelos y administración",
+      "resumen": "Proyecto y apps, modelos, migraciones, ORM y panel de administración.",
+      "dominio": [
+        "Tengo mini_sscreq corriendo con runserver",
+        "Capturé datos ficticios desde el panel de administración",
+        "Agregué un campo a Requerimiento, creé su migración y leí el SQL con sqlmigrate",
+        "Escribí en el shell una consulta con filter y otra con annotate"
+      ]
+    },
+    {
+      "id": "M5", "carpeta": "M05-django-vistas", "etapa": 2, "horas": 20, "requiere": ["M4"],
+      "titulo": "Django: vistas, formularios y plantillas",
+      "resumen": "Pantallas de consulta y captura: vistas, plantillas y ModelForm.",
+      "dominio": [
+        "Tengo la lista de requerimientos con filtros por estatus",
+        "Tengo alta y edición con validación de folio",
+        "Puedo explicar paso a paso qué pasa desde que presiono Guardar hasta ver la lista"
+      ]
+    },
+    {
+      "id": "M6", "carpeta": "M06-usuarios-permisos", "etapa": 2, "horas": 14, "requiere": ["M5"],
+      "titulo": "Usuarios, roles y permisos por dependencia",
+      "resumen": "Autenticación, grupos, filtrar por dependencia y bitácora.",
+      "dominio": [
+        "Creé tres usuarios de dependencias distintas",
+        "Ninguno ve ni abre por URL los requerimientos de otro",
+        "Escribir a mano la URL de un requerimiento ajeno devuelve 403 o 404"
+      ]
+    },
+    {
+      "id": "M7", "carpeta": "M07-htmx", "etapa": 3, "horas": 18, "requiere": ["M5"],
+      "titulo": "HTMX",
+      "resumen": "Responder sin recargar la página, casi sin JavaScript.",
+      "dominio": [
+        "La lista filtra sin recargar la página",
+        "El estatus cambia en línea y solo se actualiza esa fila",
+        "Puedo borrar con confirmación (hx-confirm)",
+        "Puedo señalar en F12 qué fragmento devolvió el servidor y dónde quedó"
+      ]
+    },
+    {
+      "id": "M8", "carpeta": "M08-tiempo-real", "etapa": 3, "horas": 10, "requiere": ["M6", "M7"],
+      "titulo": "Cambios en vivo y edición simultánea",
+      "resumen": "Revisión periódica, SSE, WebSockets y control de conflictos.",
+      "dominio": [
+        "Lo que guarda un navegador aparece en el otro",
+        "Editar el mismo requerimiento a la vez produce el aviso de conflicto",
+        "Puedo explicar cuándo basta la revisión periódica y cuándo conviene SSE o WebSockets"
+      ]
+    },
+    {
+      "id": "M9", "carpeta": "M09-documentos", "etapa": 3, "horas": 10, "requiere": ["M5"],
+      "titulo": "Documentos y archivos",
+      "resumen": "Oficios en Word y PDF, Excel y adjuntos.",
+      "dominio": [
+        "Exporté la lista filtrada a Excel",
+        "Generé un oficio en PDF desde una plantilla de Word",
+        "Adjunté un PDF a un requerimiento",
+        "Sé exactamente qué cambia entre el oficio web y el de escritorio"
+      ]
+    },
+    {
+      "id": "M10", "carpeta": "M10-seguridad", "etapa": 4, "horas": 8, "requiere": ["M6"],
+      "titulo": "Seguridad y datos personales",
+      "resumen": "Riesgos comunes, configuración de producción y bitácoras.",
+      "dominio": [
+        "Corrí manage.py check --deploy y corregí cada advertencia",
+        "Puedo explicar por qué esconder un botón no es un permiso"
+      ]
+    },
+    {
+      "id": "M11", "carpeta": "M11-pruebas", "etapa": 4, "horas": 8, "requiere": ["M6"],
+      "titulo": "Pruebas automáticas",
+      "resumen": "pytest-django para reglas, permisos y cálculos.",
+      "dominio": [
+        "Tengo pruebas de folio, cancelado en cero y filtro por dependencia",
+        "Rompí a propósito una regla y una prueba lo detectó"
+      ]
+    },
+    {
+      "id": "M12", "carpeta": "M12-despliegue", "etapa": 4, "horas": 16, "requiere": ["M10", "M11"],
+      "titulo": "Despliegue",
+      "resumen": "Linux, Docker, Nginx, respaldos y entornos.",
+      "dominio": [
+        "Levanté el proyecto con docker compose en una máquina virtual",
+        "Respaldé la base, la borré y la restauré",
+        "Publiqué una versión nueva y regresé a la anterior"
+      ]
+    },
+    {
+      "id": "P", "carpeta": "P-proyecto-integrador", "etapa": 5, "horas": 30,
+      "requiere": ["M0", "M1", "M2", "M3", "M4", "M5", "M6", "M7", "M8", "M9", "M10", "M11", "M12"],
+      "titulo": "Proyecto integrador: mini-SSCReq web",
+      "resumen": "Versión reducida del módulo de Requerimientos con todo lo anterior.",
+      "dominio": [
+        "Catálogos de dependencias, áreas y proveedores en el panel de administración",
+        "Requerimientos con folio por formato de dependencia y estatus",
+        "Cuatro roles, con filtro por dependencia y excepción para la administradora general",
+        "Tabla con filtros, búsqueda y cambio de estatus en línea con HTMX",
+        "Historial de cambios por campo",
+        "Cambios en vivo entre dos navegadores y aviso de conflicto al guardar",
+        "Adjuntar PDF y exportar la tabla a Excel",
+        "Pruebas automáticas de reglas y permisos",
+        "Desplegado con Docker, con respaldo y restauración probados"
+      ]
+    }
+  ]
+}

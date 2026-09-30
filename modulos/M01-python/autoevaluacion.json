@@ -1,0 +1,58 @@
+[
+  {
+    "pregunta": "¿Cómo debe representarse un monto de dinero en Python?",
+    "opciones": ["float(\"1500.50\")", "Decimal(\"1500.50\")", "int(1500.50)", "\"1500.50\" como texto siempre"],
+    "correcta": 1,
+    "explicacion": "Decimal es exacto; float acumula errores de redondeo (0.1 + 0.2 = 0.30000000000000004)."
+  },
+  {
+    "pregunta": "En class Requerimiento(Documento), ¿qué significa (Documento)?",
+    "opciones": [
+      "Que Requerimiento recibe como parámetro un Documento",
+      "Que Requerimiento hereda atributos y métodos de Documento",
+      "Que Documento se crea dentro de Requerimiento",
+      "Nada, es un comentario"
+    ],
+    "correcta": 1,
+    "explicacion": "Es herencia. Así funcionan los modelos de Django: class Requerimiento(models.Model)."
+  },
+  {
+    "pregunta": "¿Qué devuelve requerimiento.get(\"proveedor\") si la clave no existe?",
+    "opciones": ["Un error KeyError", "Una cadena vacía", "None", "False"],
+    "correcta": 2,
+    "explicacion": "get() devuelve None (o el valor por omisión que le pases); requerimiento[\"proveedor\"] sí lanzaría KeyError."
+  },
+  {
+    "pregunta": "¿Qué hace la línea @login_required arriba de una función?",
+    "opciones": [
+      "Es un comentario",
+      "Envuelve la función para exigir sesión iniciada antes de ejecutarla",
+      "Crea un usuario nuevo",
+      "Hace la función más rápida"
+    ],
+    "correcta": 1,
+    "explicacion": "Es un decorador: agrega comportamiento antes (o después) de la función."
+  },
+  {
+    "pregunta": "¿Qué produce [r[\"folio\"] for r in reqs if r[\"estatus\"] != \"Cancelado\"]?",
+    "opciones": [
+      "La lista de folios no cancelados",
+      "La cantidad de requerimientos cancelados",
+      "Un error, falta el return",
+      "Un diccionario de folios"
+    ],
+    "correcta": 0,
+    "explicacion": "Es una lista por comprensión: toma el folio de cada requerimiento que cumple la condición."
+  },
+  {
+    "pregunta": "¿Para qué sirve raise ValueError(\"...\")?",
+    "opciones": [
+      "Para imprimir un mensaje",
+      "Para lanzar un error que detiene la función y puede atraparse con try/except",
+      "Para convertir texto en número",
+      "Para guardar el valor en la base"
+    ],
+    "correcta": 1,
+    "explicacion": "Las validaciones de Django (ValidationError) usan el mismo mecanismo."
+  }
+]

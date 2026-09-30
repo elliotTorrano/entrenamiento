@@ -1,0 +1,12 @@
+{% extends "requerimientos/base.html" %}
+
+{% block titulo %}{% if requerimiento %}Editar {{ requerimiento }}{% else %}Nuevo requerimiento{% endif %}{% endblock %}
+
+{% block contenido %}
+<h1 class="h3">{% if requerimiento %}Editar {{ requerimiento }}{% else %}Nuevo requerimiento{% endif %}</h1>
+<form method="post" enctype="multipart/form-data" class="col-lg-6">
+  {% include "requerimientos/_campos.html" %}
+  <button class="btn btn-primary">Guardar</button>
+  <a class="btn btn-link" href="{% url 'requerimientos:lista' %}">Cancelar</a>
+</form>
+{% endblock %}

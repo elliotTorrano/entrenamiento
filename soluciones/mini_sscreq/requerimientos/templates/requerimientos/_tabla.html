@@ -1,0 +1,29 @@
+<table class="table table-hover align-middle">
+  <thead>
+    <tr>
+      <th>Folio</th><th>Dependencia</th><th>Proveedor</th>
+      <th class="text-end">Monto</th><th>Estatus</th><th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for r in pagina %}
+      {% include "requerimientos/_fila.html" %}
+    {% empty %}
+      <tr><td colspan="6" class="text-center text-muted py-4">Sin requerimientos con esos filtros.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% if pagina.has_other_pages %}
+<nav hx-boost="true" hx-target="#tabla">
+  <ul class="pagination">
+    {% if pagina.has_previous %}
+      <li class="page-item"><a class="page-link" href="{% querystring page=pagina.previous_page_number %}">Anterior</a></li>
+    {% endif %}
+    <li class="page-item disabled"><span class="page-link">Página {{ pagina.number }} de {{ pagina.paginator.num_pages }}</span></li>
+    {% if pagina.has_next %}
+      <li class="page-item"><a class="page-link" href="{% querystring page=pagina.next_page_number %}">Siguiente</a></li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}

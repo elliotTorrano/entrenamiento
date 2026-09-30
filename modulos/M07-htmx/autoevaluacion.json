@@ -1,0 +1,79 @@
+[
+  {
+    "pregunta": "¿Qué devuelve el servidor a una petición de HTMX?",
+    "opciones": [
+      "JSON que el navegador convierte con JavaScript",
+      "Un pedazo de HTML que HTMX coloca en la página",
+      "Siempre la página completa",
+      "Nada, HTMX guarda directo en la base"
+    ],
+    "correcta": 1,
+    "explicacion": "Esa es la idea central: el servidor sigue generando HTML con plantillas de Django."
+  },
+  {
+    "pregunta": "¿Qué hace hx-target=\"closest tr\" hx-swap=\"outerHTML\" en el combo de estatus?",
+    "opciones": [
+      "Recarga toda la tabla",
+      "Reemplaza la fila que contiene el combo por la fila que devolvió el servidor",
+      "Borra la fila",
+      "Abre una ventana nueva"
+    ],
+    "correcta": 1,
+    "explicacion": "closest tr = la fila más cercana hacia arriba; outerHTML = reemplaza el elemento completo."
+  },
+  {
+    "pregunta": "¿Cómo sabe la vista si debe devolver la página completa o solo la tabla?",
+    "opciones": [
+      "Por el método GET o POST",
+      "Por request.htmx, que agrega django-htmx",
+      "Por la URL",
+      "No lo sabe; siempre devuelve la tabla"
+    ],
+    "correcta": 1,
+    "explicacion": "HTMX envía el encabezado HX-Request; el middleware lo convierte en request.htmx."
+  },
+  {
+    "pregunta": "Todos tus hx-post responden 403. ¿Qué falta más probablemente?",
+    "opciones": [
+      "El token CSRF (hx-headers en <body>)",
+      "hx-target",
+      "El decorador @require_POST",
+      "hx-push-url"
+    ],
+    "correcta": 0,
+    "explicacion": "Django rechaza POST sin token CSRF; hx-headers lo agrega a todas las peticiones HTMX."
+  },
+  {
+    "pregunta": "¿Para qué sirve hx-trigger=\"input delay:300ms\" en los filtros?",
+    "opciones": [
+      "Para filtrar cada 300 ms aunque no se escriba nada",
+      "Para esperar 300 ms sin cambios antes de pedir, evitando una petición por letra",
+      "Para que la tabla tarde en aparecer",
+      "Para confirmar antes de filtrar"
+    ],
+    "correcta": 1,
+    "explicacion": "Cada tecla reinicia la espera; solo se pide cuando dejas de escribir."
+  },
+  {
+    "pregunta": "Al guardar en la ventana modal, el servidor responde 204 con HX-Trigger: requerimiento-guardado. ¿Qué logra eso?",
+    "opciones": [
+      "Nada, 204 es un error",
+      "Lanza un evento en el navegador que cierra la ventana y recarga la tabla",
+      "Redirige a otra página",
+      "Guarda por segunda vez"
+    ],
+    "correcta": 1,
+    "explicacion": "El diálogo escucha el evento con hx-on y el formulario de filtros con 'requerimiento-guardado from:body'."
+  },
+  {
+    "pregunta": "¿Por qué los enlaces con hx-get conservan su href?",
+    "opciones": [
+      "Es obligatorio en HTMX",
+      "Para que sigan funcionando sin HTMX (nueva pestaña, recarga)",
+      "Para que se vean azules",
+      "Para el token CSRF"
+    ],
+    "correcta": 1,
+    "explicacion": "HTMX mejora la página, pero la página sigue funcionando sin él."
+  }
+]

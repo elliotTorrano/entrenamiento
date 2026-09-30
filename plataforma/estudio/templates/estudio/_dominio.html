@@ -1,0 +1,12 @@
+<ul id="dominio" class="criterios">
+  {% for i, texto, hecho in criterios %}
+  <li>
+    <label>
+      <input type="checkbox" name="hecho" {% if hecho %}checked{% endif %}
+             hx-post="{% url 'estudio:marcar' modulo.id i %}"
+             hx-target="#dominio" hx-swap="outerHTML">
+      <span>{{ texto }}</span>
+    </label>
+  </li>
+  {% endfor %}
+</ul>

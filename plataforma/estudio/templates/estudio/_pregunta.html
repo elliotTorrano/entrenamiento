@@ -1,0 +1,16 @@
+<form class="pregunta{% if p.respondida %}{% if p.acierto %} acierto{% else %} error{% endif %}{% endif %}"
+      hx-post="{% url 'estudio:responder' modulo.id p.indice %}" hx-target="this" hx-swap="outerHTML">
+  <p><strong>{{ p.numero }}.</strong> {{ p.texto }}</p>
+  {% for n, opcion in p.opciones %}
+    <label class="opcion{% if p.respondida and n == p.correcta %} correcta{% elif p.respondida and n == p.elegida %} elegida{% endif %}">
+      <input type="radio" name="opcion" value="{{ n }}" required
+             {% if p.elegida == n %}checked{% endif %} {% if p.respondida %}disabled{% endif %}>
+      {{ opcion }}
+    </label>
+  {% endfor %}
+  {% if p.respondida %}
+    <p class="explicacion">{% if p.acierto %}Correcto.{% else %}Incorrecto.{% endif %} {{ p.explicacion }}</p>
+  {% else %}
+    <button class="boton">Responder</button>
+  {% endif %}
+</form>

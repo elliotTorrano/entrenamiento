@@ -1,0 +1,53 @@
+[
+  {
+    "pregunta": "Quieres filtrar la lista de requerimientos por estatus. ¿Qué método HTTP corresponde?",
+    "opciones": ["GET", "POST", "DELETE", "Cualquiera"],
+    "correcta": 0,
+    "explicacion": "Filtrar solo consulta; no cambia datos. Los filtros viajan en la URL: ?estatus=Pendiente."
+  },
+  {
+    "pregunta": "Después de guardar un requerimiento, el servidor responde 302 a la lista. ¿Por qué?",
+    "opciones": [
+      "Porque hubo un error",
+      "Para que recargar la página no vuelva a guardar el registro (Post/Redirect/Get)",
+      "Porque el usuario no tiene permiso",
+      "Porque la lista no existe"
+    ],
+    "correcta": 1,
+    "explicacion": "La redirección convierte la última petición en un GET; recargar ya no repite el POST."
+  },
+  {
+    "pregunta": "¿Cómo sabe el servidor quién eres en cada petición?",
+    "opciones": [
+      "Por tu dirección IP",
+      "Porque el navegador envía una cookie de sesión en cada petición",
+      "Porque el servidor recuerda la última persona que entró",
+      "Por el nombre de la computadora"
+    ],
+    "correcta": 1,
+    "explicacion": "HTTP no recuerda nada; la cookie sessionid identifica tu sesión guardada en el servidor."
+  },
+  {
+    "pregunta": "Un campo tiene required y min=\"0\" en el HTML. ¿Hace falta validar en el servidor?",
+    "opciones": [
+      "No, el navegador ya lo validó",
+      "Sí, siempre: cualquiera puede saltarse el navegador",
+      "Solo si el campo es de dinero",
+      "Solo en producción"
+    ],
+    "correcta": 1,
+    "explicacion": "La validación del navegador es comodidad para el usuario; la seguridad está en el servidor."
+  },
+  {
+    "pregunta": "¿Qué atributo de un <input> define el nombre con el que el dato llega al servidor?",
+    "opciones": ["id", "class", "name", "placeholder"],
+    "correcta": 2,
+    "explicacion": "Se envía como name=valor. El id solo sirve para la etiqueta <label> y para CSS/JS."
+  },
+  {
+    "pregunta": "Abres la URL de un requerimiento de otra dependencia y ves 403. ¿Qué significa?",
+    "opciones": ["El servidor falló", "El registro no existe", "No tienes permiso", "Debes iniciar sesión otra vez"],
+    "correcta": 2,
+    "explicacion": "403 = prohibido. 404 = no existe. 500 = error del servidor."
+  }
+]

@@ -1,0 +1,19 @@
+{% load static %}<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titulo %}Entrenamiento Django + HTMX{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'estudio/estilo.css' %}">
+  <script src="{% static 'estudio/htmx.min.js' %}" defer></script>
+</head>
+<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+  <header class="barra">
+    <a class="marca" href="{% url 'estudio:ruta' %}">Entrenamiento Django + HTMX</a>
+    <span class="subtitulo">para SSCReq web</span>
+  </header>
+  <main class="contenedor">
+    {% block contenido %}{% endblock %}
+  </main>
+</body>
+</html>

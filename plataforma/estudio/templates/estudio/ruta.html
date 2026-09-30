@@ -1,0 +1,42 @@
+{% extends "estudio/base.html" %}
+
+{% block contenido %}
+<section class="resumen">
+  <div>
+    <h1>Ruta de aprendizaje</h1>
+    <p class="tenue">{{ dominados }} de {{ total_modulos }} módulos dominados · {{ horas_dominadas }} de {{ horas_total }} h del plan · {{ horas_reales|floatformat:"-1" }} h registradas</p>
+    <div class="barra-avance"><span style="width: {{ porcentaje }}%"></span></div>
+  </div>
+  {% if siguiente %}
+  <a class="siguiente" href="{% url 'estudio:detalle' siguiente.id %}">
+    <small>Siguiente paso</small>
+    <strong>{{ siguiente.id }}. {{ siguiente.titulo }}</strong>
+  </a>
+  {% endif %}
+</section>
+
+{% for etapa, tarjetas in etapas %}
+<section class="etapa">
+  <h2>Etapa {{ etapa.id }}: {{ etapa.titulo }}</h2>
+  <p class="tenue">{{ etapa.descripcion }}</p>
+  <div class="rejilla">
+    {% for m, r in tarjetas %}
+    <a class="tarjeta estado-{% if r.estado == 'pendiente' and not r.disponible %}bloqueado{% else %}{{ r.estado }}{% endif %}"
+       href="{% url 'estudio:detalle' m.id %}">
+      <div class="tarjeta-cabeza">
+        <span class="clave">{{ m.id }}</span>
+        {% include "estudio/_insignia.html" %}
+      </div>
+      <strong>{{ m.titulo }}</strong>
+      <p>{{ m.resumen }}</p>
+      <div class="tarjeta-pie">
+        <span>{{ m.horas }} h{% if r.horas_reales %} · {{ r.horas_reales|floatformat:"-1" }} h reales{% endif %}</span>
+        <span>{{ r.checks_hechos }}/{{ r.checks_total }}{% if r.mejor_puntaje is not None %} · {% widthratio r.mejor_puntaje 1 100 %}%{% endif %}</span>
+      </div>
+      {% if m.es_borrador %}<span class="borrador">temario</span>{% endif %}
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
+{% endblock %}

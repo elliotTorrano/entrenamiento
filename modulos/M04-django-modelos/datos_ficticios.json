@@ -1,0 +1,560 @@
+[
+ {
+  "model": "requerimientos.dependencia",
+  "pk": 1,
+  "fields": {
+   "nombre": "SSC",
+   "formato_folio": "SSC-####/AAAA"
+  }
+ },
+ {
+  "model": "requerimientos.dependencia",
+  "pk": 2,
+  "fields": {
+   "nombre": "Tránsito",
+   "formato_folio": "DGT/##/AAAA"
+  }
+ },
+ {
+  "model": "requerimientos.dependencia",
+  "pk": 3,
+  "fields": {
+   "nombre": "Protección Civil",
+   "formato_folio": "PC-###-AAAA"
+  }
+ },
+ {
+  "model": "requerimientos.proveedor",
+  "pk": 1,
+  "fields": {
+   "nombre": "Papelería Ficticia S.A. de C.V.",
+   "rfc": "PFI010101AAA"
+  }
+ },
+ {
+  "model": "requerimientos.proveedor",
+  "pk": 2,
+  "fields": {
+   "nombre": "Llantas Imaginarias S.A.",
+   "rfc": "LIM020202BBB"
+  }
+ },
+ {
+  "model": "requerimientos.proveedor",
+  "pk": 3,
+  "fields": {
+   "nombre": "Uniformes de Prueba S. de R.L.",
+   "rfc": "UPR030303CCC"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 1,
+  "fields": {
+   "folio": "SSC-0001/2026",
+   "dependencia": 1,
+   "proveedor": 1,
+   "descripcion": "Hojas y tóner",
+   "monto": "1500.00",
+   "estatus": "pagado",
+   "fecha": "2026-01-15",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 2,
+  "fields": {
+   "folio": "SSC-0002/2026",
+   "dependencia": 1,
+   "proveedor": 3,
+   "descripcion": "Uniformes operativos",
+   "monto": "48000.00",
+   "estatus": "autorizado",
+   "fecha": "2026-02-03",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 3,
+  "fields": {
+   "folio": "SSC-0003/2026",
+   "dependencia": 1,
+   "proveedor": 2,
+   "descripcion": "Llantas patrulla 12",
+   "monto": "9800.50",
+   "estatus": "cancelado",
+   "fecha": "2026-02-20",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 4,
+  "fields": {
+   "folio": "SSC-0004/2026",
+   "dependencia": 1,
+   "proveedor": 1,
+   "descripcion": "Carpetas",
+   "monto": "640.00",
+   "estatus": "pendiente",
+   "fecha": "2026-03-01",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 5,
+  "fields": {
+   "folio": "DGT/01/2026",
+   "dependencia": 2,
+   "proveedor": 2,
+   "descripcion": "Llantas grúa",
+   "monto": "12500.00",
+   "estatus": "autorizado",
+   "fecha": "2026-01-22",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 6,
+  "fields": {
+   "folio": "DGT/02/2026",
+   "dependencia": 2,
+   "proveedor": 1,
+   "descripcion": "Formatos de infracción",
+   "monto": "3200.00",
+   "estatus": "cancelado",
+   "fecha": "2026-02-11",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 7,
+  "fields": {
+   "folio": "DGT/03/2026",
+   "dependencia": 2,
+   "proveedor": 3,
+   "descripcion": "Chalecos reflejantes",
+   "monto": "7400.00",
+   "estatus": "pendiente",
+   "fecha": "2026-03-09",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 8,
+  "fields": {
+   "folio": "PC-001-2026",
+   "dependencia": 3,
+   "proveedor": 3,
+   "descripcion": "Equipo de protección",
+   "monto": "15300.00",
+   "estatus": "pagado",
+   "fecha": "2026-01-30",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 9,
+  "fields": {
+   "folio": "PC-002-2026",
+   "dependencia": 3,
+   "proveedor": null,
+   "descripcion": "Por cotizar",
+   "monto": "0.00",
+   "estatus": "pendiente",
+   "fecha": "2026-03-12",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 10,
+  "fields": {
+   "folio": "SSC-0005/2026",
+   "dependencia": 1,
+   "proveedor": 3,
+   "descripcion": "Material de prueba 5",
+   "monto": "500.00",
+   "estatus": "pagado",
+   "fecha": "2026-04-06",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 11,
+  "fields": {
+   "folio": "SSC-0006/2026",
+   "dependencia": 1,
+   "proveedor": 1,
+   "descripcion": "Material de prueba 6",
+   "monto": "600.00",
+   "estatus": "pendiente",
+   "fecha": "2026-04-07",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 12,
+  "fields": {
+   "folio": "SSC-0007/2026",
+   "dependencia": 1,
+   "proveedor": 2,
+   "descripcion": "Material de prueba 7",
+   "monto": "700.00",
+   "estatus": "autorizado",
+   "fecha": "2026-04-08",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 13,
+  "fields": {
+   "folio": "SSC-0008/2026",
+   "dependencia": 1,
+   "proveedor": 3,
+   "descripcion": "Material de prueba 8",
+   "monto": "800.00",
+   "estatus": "pagado",
+   "fecha": "2026-04-09",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 14,
+  "fields": {
+   "folio": "SSC-0009/2026",
+   "dependencia": 1,
+   "proveedor": 1,
+   "descripcion": "Material de prueba 9",
+   "monto": "900.00",
+   "estatus": "pendiente",
+   "fecha": "2026-04-10",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 15,
+  "fields": {
+   "folio": "SSC-0010/2026",
+   "dependencia": 1,
+   "proveedor": 2,
+   "descripcion": "Material de prueba 10",
+   "monto": "1000.00",
+   "estatus": "autorizado",
+   "fecha": "2026-04-11",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 16,
+  "fields": {
+   "folio": "SSC-0011/2026",
+   "dependencia": 1,
+   "proveedor": 3,
+   "descripcion": "Material de prueba 11",
+   "monto": "1100.00",
+   "estatus": "pagado",
+   "fecha": "2026-04-12",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 17,
+  "fields": {
+   "folio": "SSC-0012/2026",
+   "dependencia": 1,
+   "proveedor": 1,
+   "descripcion": "Material de prueba 12",
+   "monto": "1200.00",
+   "estatus": "pendiente",
+   "fecha": "2026-04-13",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 18,
+  "fields": {
+   "folio": "SSC-0013/2026",
+   "dependencia": 1,
+   "proveedor": 2,
+   "descripcion": "Material de prueba 13",
+   "monto": "1300.00",
+   "estatus": "autorizado",
+   "fecha": "2026-04-14",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 19,
+  "fields": {
+   "folio": "SSC-0014/2026",
+   "dependencia": 1,
+   "proveedor": 3,
+   "descripcion": "Material de prueba 14",
+   "monto": "1400.00",
+   "estatus": "pagado",
+   "fecha": "2026-04-15",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 20,
+  "fields": {
+   "folio": "SSC-0015/2026",
+   "dependencia": 1,
+   "proveedor": 1,
+   "descripcion": "Material de prueba 15",
+   "monto": "1500.00",
+   "estatus": "pendiente",
+   "fecha": "2026-04-16",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 21,
+  "fields": {
+   "folio": "SSC-0016/2026",
+   "dependencia": 1,
+   "proveedor": 2,
+   "descripcion": "Material de prueba 16",
+   "monto": "1600.00",
+   "estatus": "autorizado",
+   "fecha": "2026-04-17",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 22,
+  "fields": {
+   "folio": "SSC-0017/2026",
+   "dependencia": 1,
+   "proveedor": 3,
+   "descripcion": "Material de prueba 17",
+   "monto": "1700.00",
+   "estatus": "pagado",
+   "fecha": "2026-04-18",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 23,
+  "fields": {
+   "folio": "SSC-0018/2026",
+   "dependencia": 1,
+   "proveedor": 1,
+   "descripcion": "Material de prueba 18",
+   "monto": "1800.00",
+   "estatus": "pendiente",
+   "fecha": "2026-04-19",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 24,
+  "fields": {
+   "folio": "SSC-0019/2026",
+   "dependencia": 1,
+   "proveedor": 2,
+   "descripcion": "Material de prueba 19",
+   "monto": "1900.00",
+   "estatus": "autorizado",
+   "fecha": "2026-04-20",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 25,
+  "fields": {
+   "folio": "SSC-0020/2026",
+   "dependencia": 1,
+   "proveedor": 3,
+   "descripcion": "Material de prueba 20",
+   "monto": "2000.00",
+   "estatus": "pagado",
+   "fecha": "2026-04-21",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 26,
+  "fields": {
+   "folio": "SSC-0021/2026",
+   "dependencia": 1,
+   "proveedor": 1,
+   "descripcion": "Material de prueba 21",
+   "monto": "2100.00",
+   "estatus": "pendiente",
+   "fecha": "2026-04-22",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 27,
+  "fields": {
+   "folio": "SSC-0022/2026",
+   "dependencia": 1,
+   "proveedor": 2,
+   "descripcion": "Material de prueba 22",
+   "monto": "2200.00",
+   "estatus": "autorizado",
+   "fecha": "2026-04-23",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 28,
+  "fields": {
+   "folio": "SSC-0023/2026",
+   "dependencia": 1,
+   "proveedor": 3,
+   "descripcion": "Material de prueba 23",
+   "monto": "2300.00",
+   "estatus": "pagado",
+   "fecha": "2026-04-24",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 29,
+  "fields": {
+   "folio": "SSC-0024/2026",
+   "dependencia": 1,
+   "proveedor": 1,
+   "descripcion": "Material de prueba 24",
+   "monto": "2400.00",
+   "estatus": "pendiente",
+   "fecha": "2026-04-25",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 30,
+  "fields": {
+   "folio": "SSC-0025/2026",
+   "dependencia": 1,
+   "proveedor": 2,
+   "descripcion": "Material de prueba 25",
+   "monto": "2500.00",
+   "estatus": "autorizado",
+   "fecha": "2026-04-26",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 31,
+  "fields": {
+   "folio": "SSC-0026/2026",
+   "dependencia": 1,
+   "proveedor": 3,
+   "descripcion": "Material de prueba 26",
+   "monto": "2600.00",
+   "estatus": "pagado",
+   "fecha": "2026-04-27",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 32,
+  "fields": {
+   "folio": "SSC-0027/2026",
+   "dependencia": 1,
+   "proveedor": 1,
+   "descripcion": "Material de prueba 27",
+   "monto": "2700.00",
+   "estatus": "pendiente",
+   "fecha": "2026-04-28",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 33,
+  "fields": {
+   "folio": "SSC-0028/2026",
+   "dependencia": 1,
+   "proveedor": 2,
+   "descripcion": "Material de prueba 28",
+   "monto": "2800.00",
+   "estatus": "autorizado",
+   "fecha": "2026-04-29",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ },
+ {
+  "model": "requerimientos.requerimiento",
+  "pk": 34,
+  "fields": {
+   "folio": "SSC-0029/2026",
+   "dependencia": 1,
+   "proveedor": 3,
+   "descripcion": "Material de prueba 29",
+   "monto": "2900.00",
+   "estatus": "pagado",
+   "fecha": "2026-04-30",
+   "creado": "2026-09-01T12:00:00Z",
+   "modificado": "2026-09-01T12:00:00Z"
+  }
+ }
+]

@@ -1,0 +1,28 @@
+<section id="estado" class="panel"{% if oob %} hx-swap-oob="true"{% endif %}>
+  <div class="tarjeta-cabeza">
+    <h3>{{ modulo.id }}. {{ modulo.titulo }}</h3>
+    {% with r=resumen %}{% include "estudio/_insignia.html" %}{% endwith %}
+  </div>
+  {% if modulo.es_borrador %}<p class="aviso">Este módulo es un temario. La lección completa se escribe cuando llegues a él.</p>{% endif %}
+  {% if not resumen.disponible and resumen.estado == "pendiente" %}
+    <p class="aviso">Conviene terminar antes {{ resumen.faltan|join:", " }}.</p>
+  {% endif %}
+  <dl class="datos">
+    <dt>Criterios</dt><dd>{{ resumen.checks_hechos }} de {{ resumen.checks_total }}</dd>
+    {% if resumen.tiene_autoevaluacion %}
+      <dt>Autoevaluación</dt>
+      <dd>{% if resumen.mejor_puntaje is None %}sin terminar{% else %}{% widthratio resumen.mejor_puntaje 1 100 %}%{% if resumen.aprobado %} ✓{% endif %}{% endif %}</dd>
+    {% endif %}
+    <dt>Horas</dt><dd>{{ resumen.horas_reales|floatformat:"-1" }} de {{ modulo.horas }} estimadas</dd>
+    {% if resumen.inicio %}<dt>Inicio</dt><dd>{{ resumen.inicio }}</dd>{% endif %}
+    {% if resumen.fin %}<dt>Dominado</dt><dd>{{ resumen.fin }}</dd>{% endif %}
+  </dl>
+  {% if resumen.estado == "pendiente" %}
+    <button class="boton" hx-post="{% url 'estudio:empezar' modulo.id %}" hx-target="#estado" hx-swap="outerHTML">Empezar módulo</button>
+  {% else %}
+    <form class="horas" hx-post="{% url 'estudio:horas' modulo.id %}" hx-target="#estado" hx-swap="outerHTML">
+      <input type="number" name="horas" step="0.5" min="-24" max="24" value="1" aria-label="Horas">
+      <button class="boton secundario">Registrar horas</button>
+    </form>
+  {% endif %}
+</section>

@@ -1,0 +1,10 @@
+{% csrf_token %}
+{{ form.non_field_errors }}
+{% for campo in form %}
+  <div class="mb-3">
+    <label class="form-label" for="{{ campo.id_for_label }}">{{ campo.label|capfirst }}</label>
+    {{ campo }}
+    {% for error in campo.errors %}<div class="text-danger small">{{ error }}</div>{% endfor %}
+    {% if campo.help_text %}<div class="form-text">{{ campo.help_text }}</div>{% endif %}
+  </div>
+{% endfor %}

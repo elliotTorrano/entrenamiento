@@ -1,0 +1,37 @@
+[
+  {
+    "pregunta": "¿Por qué cada proyecto tiene su propio entorno virtual (venv)?",
+    "opciones": [
+      "Para que el programa corra más rápido",
+      "Para que cada proyecto tenga sus propias librerías y versiones sin afectar a otros",
+      "Porque Git lo exige",
+      "Para cifrar el código"
+    ],
+    "correcta": 1,
+    "explicacion": "El venv aísla las librerías: actualizar Django en un proyecto no rompe otro."
+  },
+  {
+    "pregunta": "¿Qué comando muestra las diferencias entre dos commits?",
+    "opciones": ["git log", "git status", "git diff", "git add"],
+    "correcta": 2,
+    "explicacion": "git diff compara versiones. git log solo lista los commits."
+  },
+  {
+    "pregunta": "Subiste un commit con un error. ¿Cuál es la forma segura de deshacerlo sin perder historia?",
+    "opciones": ["Borrar la carpeta .git", "git revert <commit>", "git init de nuevo", "Borrar el archivo y volver a crearlo"],
+    "correcta": 1,
+    "explicacion": "git revert crea un commit nuevo que deshace el anterior; la historia queda completa."
+  },
+  {
+    "pregunta": "¿Qué NO debe subirse a Git?",
+    "opciones": ["requirements.txt", "El código .py", "La carpeta venv", ".gitignore"],
+    "correcta": 2,
+    "explicacion": "El venv se reconstruye con pip install -r requirements.txt. Tampoco se suben contraseñas ni bases de datos."
+  },
+  {
+    "pregunta": "Un error de Python ocupa 20 líneas. ¿Dónde está lo más útil?",
+    "opciones": ["En la primera línea", "En la última línea", "En la línea de en medio", "En ninguna, hay que buscar en internet"],
+    "correcta": 1,
+    "explicacion": "La última línea dice qué pasó; las de arriba dicen en qué archivo y línea."
+  }
+]

@@ -1,0 +1,44 @@
+{% extends "estudio/base.html" %}
+
+{% block titulo %}{{ modulo.id }}. {{ modulo.titulo }}{% endblock %}
+
+{% block contenido %}
+<nav class="migas">
+  <a href="{% url 'estudio:ruta' %}">Ruta</a>
+  {% if anterior %}<a href="{% url 'estudio:detalle' anterior.id %}">← {{ anterior.id }}</a>{% endif %}
+  {% if siguiente %}<a href="{% url 'estudio:detalle' siguiente.id %}">{{ siguiente.id }} →</a>{% endif %}
+</nav>
+
+<div class="modulo">
+  <article class="leccion">
+    {{ leccion|safe }}
+  </article>
+
+  <aside class="lateral">
+    {% include "estudio/_estado.html" %}
+
+    <section class="panel">
+      <h3>Se domina cuando</h3>
+      {% include "estudio/_dominio.html" %}
+    </section>
+
+    <section class="panel">
+      <h3>Notas y dudas</h3>
+      <p class="tenue">Se guardan en <code>progreso.json</code>. El agente docente las lee para ajustar las lecciones.</p>
+      <textarea name="notas" rows="6"
+                hx-post="{% url 'estudio:notas' modulo.id %}"
+                hx-trigger="input changed delay:800ms"
+                hx-target="#notas-guardado">{{ notas }}</textarea>
+      <small id="notas-guardado" class="tenue"></small>
+    </section>
+  </aside>
+</div>
+
+{% if preguntas %}
+<section class="panel autoevaluacion-caja">
+  <h2>Autoevaluación</h2>
+  <p class="tenue">Cuenta tu primera respuesta de cada pregunta. Se aprueba con 80 %.</p>
+  {% include "estudio/_autoevaluacion.html" %}
+</section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,10 @@
+<div id="resultado"{% if oob %} hx-swap-oob="true"{% endif %}>
+  {% if completa %}
+  <div class="resultado">
+    <strong>Resultado: {% widthratio puntaje_actual 1 100 %}%{% if puntaje_actual >= 0.8 %} · aprobado{% else %} · repasa la lección y reintenta{% endif %}</strong>
+    <button class="boton secundario" hx-post="{% url 'estudio:reiniciar' modulo.id %}"
+            hx-target="#autoevaluacion" hx-swap="outerHTML"
+            hx-confirm="¿Volver a contestar la autoevaluación? Se conserva tu mejor resultado.">Reintentar</button>
+  </div>
+  {% endif %}
+</div>

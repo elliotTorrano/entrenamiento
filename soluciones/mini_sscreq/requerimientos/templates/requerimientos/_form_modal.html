@@ -1,0 +1,7 @@
+<form method="post" enctype="multipart/form-data" class="p-4"
+      hx-post="{{ request.path }}" hx-target="#modal-contenido">
+  <h2 class="h5 mb-3">{% if requerimiento %}Editar {{ requerimiento }}{% else %}Nuevo requerimiento{% endif %}</h2>
+  {% include "requerimientos/_campos.html" %}
+  <button class="btn btn-primary">Guardar</button>
+  <button type="button" class="btn btn-link" onclick="this.closest('dialog').close()">Cancelar</button>
+</form>
