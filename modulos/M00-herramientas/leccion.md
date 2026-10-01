@@ -45,8 +45,9 @@ En VS Code: **Terminal → New Terminal** (Ctrl+ñ). Es PowerShell.
 Cada proyecto tiene sus propias librerías y versiones, igual que la carpeta `venv` de SSCReq. Así actualizar Django en un proyecto no rompe otro.
 
 ```powershell
-mkdir C:\cursos\practica-m0
-cd C:\cursos\practica-m0
+cd ~
+mkdir practica-m0
+cd practica-m0
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 ```
@@ -83,34 +84,29 @@ git config --global user.email "tu@correo.com"
 
 ### Ciclo básico
 
+Estos son los comandos que usarás siempre. En la práctica los usas paso a paso con archivos reales; aquí solo léelos:
+
 ```powershell
-git init                  # convierte la carpeta en repositorio
+git init -b main          # convierte la carpeta en repositorio, con la rama principal llamada main
 git status                # qué cambió y qué está listo para guardar
-git add archivo.py        # prepara un archivo para la foto
-git add .                 # prepara todo
+git add folios.py         # prepara un archivo para la foto
+git add .                 # prepara todos los archivos
 git commit -m "Mensaje"   # toma la foto
 git log --oneline         # lista de fotos
 git diff                  # cambios aún no preparados
 ```
 
-Crea un archivo `.gitignore` con:
-
-```
-venv/
-__pycache__/
-*.sqlite3
-.env
-```
+> Si un comando como `git log` termina con `:` y no regresa a la terminal, presiona **q** para salir.
 
 ### Viajar en el tiempo
 
 ```powershell
 git log --oneline                 # copia el código corto de un commit, p. ej. a1b2c3d
 git diff a1b2c3d HEAD             # qué cambió desde ese commit hasta hoy
-git restore archivo.py            # descarta cambios no guardados de un archivo
+git restore folios.py             # descarta cambios no guardados de un archivo
 git switch --detach a1b2c3d       # mira el proyecto como estaba (solo lectura)
 git switch main                   # regresa al presente
-git revert a1b2c3d                # crea un commit nuevo que deshace ese commit
+git revert --no-edit a1b2c3d      # crea un commit nuevo que deshace ese commit
 ```
 
 `git revert` es la forma segura de deshacer: **no borra historia**, agrega una corrección. Por eso no se pierde trabajo.
@@ -131,9 +127,11 @@ git merge prueba-folio       # trae los cambios a main
 Este mismo repositorio (`entrenamiento`) ya está en GitHub. Para bajarlo a tu computadora:
 
 ```powershell
-cd C:\cursos
+cd ~
 git clone https://github.com/elliotTorrano/entrenamiento.git
 ```
+
+`~` es tu carpeta de usuario (por ejemplo `C:\Users\Elliot_user`).
 
 Después de trabajar: `git add .`, `git commit -m "..."`, `git push`. Para traer cambios: `git pull`.
 
@@ -141,12 +139,113 @@ Después de trabajar: `git add .`, `git commit -m "..."`, `git push`. Para traer
 
 ## Práctica
 
-1. Crea `C:\cursos\practica-m0` con su `venv` y su `.gitignore`.
-2. Crea `folios.py` con una línea: `print("SSC-001")`. Commit 1.
-3. Cámbialo a `SSC-002`. Commit 2. Repite hasta tener **5 commits**.
-4. Con `git diff` compara el commit 1 con el último y explica en voz alta qué cambió.
-5. Haz un cambio que "rompa" algo, haz commit y después deshazlo con `git revert`.
-6. Crea una rama, cambia algo, regresa a `main` y fusiónala.
+Es un proyecto pequeño solo para ensayar Git. Va en su propia carpeta, **fuera** de `entrenamiento`, para no meter un repositorio dentro de otro. Todos los comandos son en PowerShell.
+
+### Paso 1. Crear la carpeta y su entorno virtual
+
+Si ya la creaste en la sección 3, solo entra a ella y activa el `venv` (las dos últimas líneas).
+
+```powershell
+cd ~
+mkdir practica-m0
+cd practica-m0
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+```
+
+### Paso 2. Crear el repositorio y el `.gitignore`
+
+```powershell
+git init -b main
+Set-Content .gitignore "venv/", "__pycache__/", "*.sqlite3", ".env"
+git status
+```
+
+`Set-Content` crea un archivo de texto; cada texto entre comillas es una línea. `git status` debe mostrar solo `.gitignore` en rojo: la carpeta `venv` ya no aparece porque Git la ignora.
+
+### Paso 3. Crear `folios.py` y el commit 1
+
+```powershell
+Set-Content folios.py 'print("SSC-001")'
+python folios.py
+git add .
+git commit -m "Primer folio"
+```
+
+`python folios.py` debe imprimir `SSC-001`.
+
+También puedes crear y editar archivos en VS Code: `code .` abre la carpeta; en el panel izquierdo usa el ícono **Nuevo archivo**. Guarda con Ctrl+S.
+
+### Paso 4. Commits 2 a 5
+
+Repite cuatro veces, cambiando el número cada vez (`SSC-002`, `SSC-003`, …):
+
+```powershell
+Set-Content folios.py 'print("SSC-002")'
+git diff
+git add .
+git commit -m "Folio 002"
+```
+
+Antes de cada `git add`, `git diff` te muestra el cambio: en rojo con `-` lo que se quitó, en verde con `+` lo que se agregó.
+
+Al final:
+
+```powershell
+git log --oneline
+```
+
+Debes ver 5 commits, el más reciente arriba.
+
+### Paso 5. Comparar versiones
+
+Copia de `git log --oneline` el código del commit **más antiguo** (el de hasta abajo, por ejemplo `a1b2c3d`):
+
+```powershell
+git diff a1b2c3d HEAD
+```
+
+`HEAD` significa "la versión actual". Explica en voz alta qué cambió entre ambas.
+
+### Paso 6. Romper algo y deshacerlo
+
+```powershell
+Set-Content folios.py 'print("SSC-005"'
+python folios.py
+```
+
+Falta un paréntesis: Python marca `SyntaxError`. Guarda el error de todos modos:
+
+```powershell
+git add .
+git commit -m "Cambio con error"
+git log --oneline
+```
+
+Copia el código de ese último commit y deshazlo:
+
+```powershell
+git revert --no-edit <codigo>
+python folios.py
+git log --oneline
+```
+
+`folios.py` vuelve a funcionar y el log muestra **los dos** commits: el del error y el que lo corrige. No se perdió nada.
+
+### Paso 7. Ramas
+
+```powershell
+git switch -c prueba-folio
+Set-Content folios.py 'print("SSC-0006/2026")'
+git add .
+git commit -m "Nuevo formato de folio"
+git switch main
+python folios.py
+git merge prueba-folio
+python folios.py
+```
+
+El primer `python folios.py` en `main` todavía imprime el formato viejo: el cambio vive solo en la rama. Después de `git merge` ya imprime `SSC-0006/2026`.
 
 ## Se domina cuando
 

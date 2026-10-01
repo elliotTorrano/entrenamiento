@@ -23,7 +23,7 @@ Programa de estudio para entender Django y HTMX lo suficiente para diseñar, lee
 Requisitos: Python 3.12+ y Git (M0 explica cómo instalarlos). En PowerShell:
 
 ```powershell
-cd C:\cursos
+cd ~
 git clone https://github.com/elliotTorrano/entrenamiento.git
 cd entrenamiento
 python -m venv venv
@@ -37,7 +37,7 @@ Abre http://127.0.0.1:8000.
 La próxima vez solo necesitas:
 
 ```powershell
-cd C:\cursos\entrenamiento
+cd ~\entrenamiento
 .\venv\Scripts\Activate.ps1
 python plataforma\manage.py runserver
 ```
