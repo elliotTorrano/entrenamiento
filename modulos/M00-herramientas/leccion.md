@@ -71,6 +71,8 @@ deactivate
 
 > **Regla:** la carpeta `venv` nunca se sube a Git. Se reconstruye.
 
+> **`venv` y Git son independientes.** El `venv` solo importa para `python` y `pip`. Git funciona con o sin `(venv)`; lo que importa es **en qué carpeta estás**, porque trabaja con el repositorio de esa carpeta.
+
 ## 4. Git (4 h)
 
 Git guarda fotos (*commits*) de tu proyecto. Puedes ver qué cambió entre fotos y regresar a cualquiera.
